@@ -1,0 +1,19 @@
+:root {
+  --colors-list: black, white;
+  --color-index: 0;
+
+  --color: color-mix(in hsl, var(--colors-list) calc(var(--color-index) * 100%));
+  --background-color: color-mix(in hsl, calc(var(--color-index) * 100%) var(--colors-list));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-index: 1;
+  }
+}
+
+body {
+  color-scheme: light dark;
+  color: var(--color);
+  background-color: var(--background-color);
+}
